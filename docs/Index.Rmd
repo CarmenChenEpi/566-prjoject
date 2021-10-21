@@ -12,11 +12,41 @@ always_allow_html: true
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(data.table)
+library(tidyverse)
+```
+
+Introduction (provide background on your dataset and formulated question)
+
+Vaccination rate and COVID-19 incidence cases in California.
+
+```{r read in the data}
+cases <- read.csv("Cases.csv")
+vaccinations <- read.csv("Vaccinations.csv")
+```
+
+```{r clean the data}
+table(vaccinations$Location)
+vaccinations <- vaccinations[vaccinations$Location == "CA", ]
 ```
 
 
+Methods (include how and where the data were acquired, how you cleaned and wrangled the data, what tools you used for data exploration)
+
+Data of COVID-19 cases and vaccinations was acquired from CovidTracker and US Center for Disease Control and Prevention, respectively.
+```{r}
+
+```
+
+Preliminary Results (provide summary statistics in tabular form and publication-quality figures, take a look at the kable function from knitr to write nice tables in Rmarkdown)
 
 ```{r}
 
 ```
+
+Conclusion
+
+
+
+
 
