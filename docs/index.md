@@ -6,7 +6,8 @@ Carmen Chen
 \#Introduction (provide background on your dataset and formulated
 question)
 
-Vaccination rate and COVID-19 incidence cases in California.
+Vaccination rate and COVID-19 incidence cases and deaths increase in
+California.
 
 \#Methods (include how and where the data were acquired, how you cleaned
 and wrangled the data, what tools you used for data exploration)
@@ -207,10 +208,194 @@ from the “cases” dataset.
 ``` r
 #combine the dataset
 covid <- merge(vaccinations, cases, by = "date")
+#exploratory analysis
+dim(covid)
 ```
+
+    ## [1] 296   7
+
+``` r
+head(covid)
+```
+
+    ##         date dose1 dose2 cases cumulative_cases deaths cumulative_deaths
+    ## 1 2020-12-14     0     0 49338          1838139    359             24436
+    ## 2 2020-12-15     0     0 48468          1886607    382             24818
+    ## 3 2020-12-16     0     0 45848          1932455    378             25196
+    ## 4 2020-12-17     0     0 44541          1976996    393             25589
+    ## 5 2020-12-18     0     0 41588          2018584    463             26052
+    ## 6 2020-12-19     0     0 29690          2048274    467             26519
+
+``` r
+tail(covid)
+```
+
+    ##           date dose1 dose2 cases cumulative_cases deaths cumulative_deaths
+    ## 291 2021-09-30  71.7  59.0  5657          4522072     53             69839
+    ## 292 2021-10-01  71.8  59.0  5503          4527575     61             69900
+    ## 293 2021-10-02  71.9  59.1  3518          4531093     69             69969
+    ## 294 2021-10-03  72.1  59.3  3207          4534300     50             70019
+    ## 295 2021-10-04  72.2  59.4  6552          4540852     48             70067
+    ## 296 2021-10-05  72.2  59.4  5969          4546821     51             70118
+
+``` r
+str(covid)
+```
+
+    ## 'data.frame':    296 obs. of  7 variables:
+    ##  $ date             : Date, format: "2020-12-14" "2020-12-15" ...
+    ##  $ dose1            : num  0 0 0 0 0 0 0 0 0 0 ...
+    ##  $ dose2            : num  0 0 0 0 0 0 0 0 0 0 ...
+    ##  $ cases            : num  49338 48468 45848 44541 41588 ...
+    ##  $ cumulative_cases : num  1838139 1886607 1932455 1976996 2018584 ...
+    ##  $ deaths           : num  359 382 378 393 463 467 442 494 532 503 ...
+    ##  $ cumulative_deaths: num  24436 24818 25196 25589 26052 ...
+
+``` r
+summary(covid$date)
+```
+
+    ##         Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
+    ## "2020-12-14" "2021-02-25" "2021-05-10" "2021-05-10" "2021-07-23" "2021-10-05"
+
+``` r
+summary(covid$dose1)
+```
+
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##    0.00   14.72   51.70   40.75   63.83   72.20
+
+``` r
+summary(covid$dose2)
+```
+
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##    0.00    0.00   35.65   30.02   52.12   59.40
+
+``` r
+summary(covid$cases)
+```
+
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##     582    1810    4275    9318   11520   60094
+
+``` r
+summary(covid$cumulative_cases)
+```
+
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ## 1838139 3512726 3669089 3631341 3833183 4546821
+
+``` r
+summary(covid$deaths)
+```
+
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##    5.00   22.75   63.50  155.54  158.75  707.00
+
+``` r
+summary(covid$cumulative_cases)
+```
+
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ## 1838139 3512726 3669089 3631341 3833183 4546821
+
+``` r
+covid[!complete.cases(covid),]
+```
+
+    ## [1] date              dose1             dose2             cases            
+    ## [5] cumulative_cases  deaths            cumulative_deaths
+    ## <0 rows> (or 0-length row.names)
+
+The two datasets were merged into one dataset by date. Exploratory data
+analysis was conducted in the merged dataset. No missing value,
+implaussible vaule or data error was found. The data includes COVID-19
+partial and fully vaccination rates, incidence cases, cumulative cases,
+deaths increase, as well cumulative deaths from 2020/12/14 to
+2021/10/05. Both univariate and bivariate summary statistics was
+analyzed. Exploratory graphs were generated between vaccination rates
+and cases and deaths.
 
 \#Preliminary Results (provide summary statistics in tabular form and
 publication-quality figures, take a look at the kable function from
 knitr to write nice tables in Rmarkdown)
+
+``` r
+#dose1
+cor(covid$dose1, covid$cases, use = "complete")
+```
+
+    ## [1] -0.4990338
+
+``` r
+cor(covid$dose1, covid$deaths, use = "complete")
+```
+
+    ## [1] -0.7814445
+
+``` r
+#dose2
+cor(covid$dose2, covid$cases, use = "complete")
+```
+
+    ## [1] -0.3931054
+
+``` r
+cor(covid$dose2, covid$deaths, use = "complete")
+```
+
+    ## [1] -0.6816794
+
+``` r
+#Vaccination rates
+ggplot(data = covid) +
+  geom_point(mapping = aes(x = date, y = dose1, color = "First dose")) +
+  geom_point(mapping = aes(x = date, y = dose2, color = "Second dose")) +
+  labs(title = "Vaccination rates from 2020-12-14 to 2021-10-05") +
+  labs(x = "Date", y = "Vaccination rates")
+```
+
+![](index_files/figure-gfm/exploratory%20graphs-1.png)<!-- -->
+
+``` r
+#Cases
+ggplot(data = covid) +
+  geom_point(mapping = aes(x = date, y = cases)) +
+  labs(title = "Daily new cases from 2020-12-14 to 2021-10-05") +
+  labs(x = "Date", y = "Daily new cases")
+```
+
+![](index_files/figure-gfm/exploratory%20graphs-2.png)<!-- -->
+
+``` r
+#Deaths
+ggplot(data = covid) +
+  geom_point(mapping = aes(x = date, y = deaths)) +
+  labs(title = "Daily new deaths from 2020-12-14 to 2021-10-05") +
+  labs(x = "Date", y = "Daily new deaths")
+```
+
+![](index_files/figure-gfm/exploratory%20graphs-3.png)<!-- -->
+
+``` r
+#Cumulative cases
+ggplot(data = covid) +
+  geom_point(mapping = aes(x = date, y = cumulative_cases)) +
+  labs(title = "Cumulative cases from 2020-12-14 to 2021-10-05") +
+  labs(x = "Date", y = "Cumulative cases")
+```
+
+![](index_files/figure-gfm/exploratory%20graphs-4.png)<!-- -->
+
+``` r
+#Cumulative deaths
+ggplot(data = covid) +
+  geom_point(mapping = aes(x = date, y = cumulative_deaths)) +
+  labs(title = "Cumulative deaths from 2020-12-14 to 2021-10-05") +
+  labs(x = "Date", y = "Cumulative deaths")
+```
+
+![](index_files/figure-gfm/exploratory%20graphs-5.png)<!-- -->
 
 \#Conclusion

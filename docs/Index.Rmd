@@ -14,37 +14,148 @@ always_allow_html: true
 knitr::opts_chunk$set(echo = TRUE)
 library(data.table)
 library(tidyverse)
+library(dplyr)
+library(ggplot2)
 ```
 
-Introduction (provide background on your dataset and formulated question)
+#Introduction (provide background on your dataset and formulated question)
 
-Vaccination rate and COVID-19 incidence cases in California.
+Vaccination rate and COVID-19 incidence cases and deaths increase in California.
+
+
+#Methods (include how and where the data were acquired, how you cleaned and wrangled the data, what tools you used for data exploration)
+
+Data of COVID-19 cases and vaccinations was acquired from California Health & Human Services Agency and US Center for Disease Control and Prevention, respectively. Data 
 
 ```{r read in the data}
 cases <- read.csv("Cases.csv")
 vaccinations <- read.csv("Vaccinations.csv")
 ```
 
-```{r clean the data}
-table(vaccinations$Location)
-vaccinations <- vaccinations[vaccinations$Location == "CA", ]
+```{r data wrangling}
+#subset the data
+vaccinations <- vaccinations[vaccinations$Location == "CA",]
+vaccinations <- vaccinations[, c("Date", "Administered_Dose1_Pop_Pct", "Series_Complete_Pop_Pct")] 
+cases <- cases[cases$area == "California",]
+cases <- cases[, c("date", "cases", "cumulative_cases", "deaths", "cumulative_deaths")]
+#rename the data
+vaccinations <- rename(vaccinations, date = Date, dose1 = Administered_Dose1_Pop_Pct, dose2 = Series_Complete_Pop_Pct)
+#format date
+vaccinations$date <- as.Date(vaccinations$date, format = "%m/%d/%Y")
+cases$date <- as.Date(cases$date, format = "%Y-%m-%d")
+```
+
+```{r data exploration}
+#check the date
+summary(vaccinations$date)
+summary(cases$date)
+#check for missing value
+cases[!complete.cases(cases),]
+vaccinations[!complete.cases(vaccinations),]
+#remove rows with missing value
+cases <- cases[complete.cases(cases),]
+#check the dimensions, headers, footers
+dim(vaccinations)
+dim(cases)
+head(vaccinations)
+cases <- cases[order(cases$date, decreasing = TRUE),]
+head(cases)
+tail(vaccinations)
+tail(cases)
+#remove the data from 2021-10-06 to 2021-10-20
+cases <- cases[!(cases$date >= "2021-10-06"),]
+#take a look at the variables
+str(vaccinations)
+summary(vaccinations$dose1)
+summary(vaccinations$dose2)
+str(cases)
+summary(cases$cases)
+summary(cases$cumulative_cases)
+summary(cases$deaths)
+summary(cases$cumulative_deaths)
+```
+
+Dimensions, headers, and footers of the two datasets were checked. There are 311 observations and 3 rows in the "vaccinations" dataset, as well as 628 observations and 5 rows in the "cases" dataset. Implausible data (e.g., 0 cases increase) was found in the date variable on "2021-10-20" in the "cases" dataset. Considering the 14-day incubation period of the COVID-19 disease, the data from 2021-10-06 to 2021-10-20 were not the final accurate number of cases and deaths since there are still many cases and deaths were not reported timely. Thus, these data were removed from the "cases" dataset. 
+
+```{r combine the dataset}
+#combine the dataset
+covid <- merge(vaccinations, cases, by = "date")
+#exploratory analysis
+dim(covid)
+head(covid)
+tail(covid)
+str(covid)
+summary(covid$date)
+summary(covid$dose1)
+summary(covid$dose2)
+summary(covid$cases)
+summary(covid$cumulative_cases)
+summary(covid$deaths)
+summary(covid$cumulative_cases)
+covid[!complete.cases(covid),]
+```
+The two datasets were merged into one dataset by date. Exploratory data analysis was conducted in the merged dataset. No missing value, implaussible vaule or data error was found. The data includes COVID-19 partial and fully vaccination rates, incidence cases, cumulative cases, deaths increase, as well cumulative deaths from 2020/12/14 to 2021/10/05. Both univariate and bivariate summary statistics was analyzed. Exploratory graphs were generated between vaccination rates and cases and deaths.  
+
+
+#Preliminary Results (provide summary statistics in tabular form and publication-quality figures, take a look at the kable function from knitr to write nice tables in Rmarkdown)
+
+```{r summary statistics}
+#dose1
+cor(covid$dose1, covid$cases, use = "complete")
+cor(covid$dose1, covid$deaths, use = "complete")
+#dose2
+cor(covid$dose2, covid$cases, use = "complete")
+cor(covid$dose2, covid$deaths, use = "complete")
+```
+```{r exploratory graphs}
+#Vaccination rates
+ggplot(data = covid) +
+  geom_point(mapping = aes(x = date, y = dose1, color = "First dose")) +
+  geom_point(mapping = aes(x = date, y = dose2, color = "Second dose")) +
+  labs(title = "Vaccination rates from 2020-12-14 to 2021-10-05") +
+  labs(x = "Date", y = "Vaccination rates")
+
+#Cases
+ggplot(data = covid) +
+  geom_point(mapping = aes(x = date, y = cases)) +
+  labs(title = "Daily new cases from 2020-12-14 to 2021-10-05") +
+  labs(x = "Date", y = "Daily new cases")
+
+#Deaths
+ggplot(data = covid) +
+  geom_point(mapping = aes(x = date, y = deaths)) +
+  labs(title = "Daily new deaths from 2020-12-14 to 2021-10-05") +
+  labs(x = "Date", y = "Daily new deaths")
+
+#Cumulative cases
+ggplot(data = covid) +
+  geom_point(mapping = aes(x = date, y = cumulative_cases)) +
+  labs(title = "Cumulative cases from 2020-12-14 to 2021-10-05") +
+  labs(x = "Date", y = "Cumulative cases")
+
+#Cumulative deaths
+ggplot(data = covid) +
+  geom_point(mapping = aes(x = date, y = cumulative_deaths)) +
+  labs(title = "Cumulative deaths from 2020-12-14 to 2021-10-05") +
+  labs(x = "Date", y = "Cumulative deaths")
 ```
 
 
-Methods (include how and where the data were acquired, how you cleaned and wrangled the data, what tools you used for data exploration)
+```{r data visualization}
 
-Data of COVID-19 cases and vaccinations was acquired from CovidTracker and US Center for Disease Control and Prevention, respectively.
+```
+
+
 ```{r}
 
 ```
 
-Preliminary Results (provide summary statistics in tabular form and publication-quality figures, take a look at the kable function from knitr to write nice tables in Rmarkdown)
 
 ```{r}
 
 ```
 
-Conclusion
+#Conclusion
 
 
 
