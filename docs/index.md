@@ -1,6 +1,6 @@
-Midterm project
+PM566 Midterm Project
 ================
-Carmen Chen
+Carmen Jiawen Chen
 10/20/2021
 
 \#Introduction (provide background on your dataset and formulated
@@ -12,9 +12,9 @@ California.
 \#Methods (include how and where the data were acquired, how you cleaned
 and wrangled the data, what tools you used for data exploration)
 
-Data of COVID-19 cases and vaccinations was acquired from California
-Health & Human Services Agency and US Center for Disease Control and
-Prevention, respectively. Data
+Data of COVID-19 cases and vaccination rates were acquired from
+California Health & Human Services Agency and US Center for Disease
+Control and Prevention, respectively. Data
 
 ``` r
 cases <- read.csv("Cases.csv")
@@ -33,6 +33,16 @@ vaccinations <- rename(vaccinations, date = Date, dose1 = Administered_Dose1_Pop
 vaccinations$date <- as.Date(vaccinations$date, format = "%m/%d/%Y")
 cases$date <- as.Date(cases$date, format = "%Y-%m-%d")
 ```
+
+Dimensions, headers, and footers of the two datasets were checked. There
+are 311 observations and 3 rows in the “vaccinations” dataset, as well
+as 628 observations and 5 rows in the “cases” dataset. Implausible data
+(e.g., 0 cases increase) was found in the date variable on “2021-10-20”
+in the “cases” dataset. Considering the 14-day incubation period of the
+COVID-19 disease, the data from 2021-10-06 to 2021-10-20 were not the
+final accurate number of cases and deaths since there are still many
+cases and deaths were not reported timely. Thus, these data were removed
+from the “cases” dataset.
 
 ``` r
 #check the date
@@ -195,15 +205,14 @@ summary(cases$cumulative_deaths)
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
     ##       0    7199   21429   33168   62592   70118
 
-Dimensions, headers, and footers of the two datasets were checked. There
-are 311 observations and 3 rows in the “vaccinations” dataset, as well
-as 628 observations and 5 rows in the “cases” dataset. Implausible data
-(e.g., 0 cases increase) was found in the date variable on “2021-10-20”
-in the “cases” dataset. Considering the 14-day incubation period of the
-COVID-19 disease, the data from 2021-10-06 to 2021-10-20 were not the
-final accurate number of cases and deaths since there are still many
-cases and deaths were not reported timely. Thus, these data were removed
-from the “cases” dataset.
+The two datasets were merged into one dataset by date. Exploratory data
+analysis was conducted in the merged dataset. No missing value,
+implaussible vaule or data error was found. The data includes COVID-19
+partial and fully vaccination rates, incidence cases, cumulative cases,
+deaths increase, as well cumulative deaths from 2020/12/14 to
+2021/10/05. Both univariate and bivariate summary statistics was
+analyzed. Exploratory graphs were generated between vaccination rates
+and cases and deaths.
 
 ``` r
 #combine the dataset
@@ -308,15 +317,6 @@ covid[!complete.cases(covid),]
     ## [5] cumulative_cases  deaths            cumulative_deaths
     ## <0 rows> (or 0-length row.names)
 
-The two datasets were merged into one dataset by date. Exploratory data
-analysis was conducted in the merged dataset. No missing value,
-implaussible vaule or data error was found. The data includes COVID-19
-partial and fully vaccination rates, incidence cases, cumulative cases,
-deaths increase, as well cumulative deaths from 2020/12/14 to
-2021/10/05. Both univariate and bivariate summary statistics was
-analyzed. Exploratory graphs were generated between vaccination rates
-and cases and deaths.
-
 \#Preliminary Results (provide summary statistics in tabular form and
 publication-quality figures, take a look at the kable function from
 knitr to write nice tables in Rmarkdown)
@@ -397,5 +397,39 @@ ggplot(data = covid) +
 ```
 
 ![](index_files/figure-gfm/exploratory%20graphs-5.png)<!-- -->
+
+``` r
+#Vaccination rates and cases
+covid[covid$dose1 > 0,] %>%
+ggplot() +
+  geom_point(mapping = aes(x = dose1, y = cases, color = "First dose")) +
+  geom_smooth(mapping = aes(x = dose1, y = cases)) +
+  geom_point(mapping = aes(x = dose2, y = cases, color = "Second dose")) +
+  geom_smooth(mapping = aes(x = dose2, y = cases)) +
+  labs(title = "Vaccination rates and cases") +
+  labs(x = "Vaccination rates", y = "Daily new cases")
+```
+
+    ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+    ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+
+![](index_files/figure-gfm/data%20visualization-1.png)<!-- -->
+
+``` r
+#Vaccination rates and deaths
+covid[covid$dose1 > 0,] %>%
+ggplot() +
+  geom_point(mapping = aes(x = dose1, y = deaths, color = "First dose")) +
+  geom_smooth(mapping = aes(x = dose1, y = deaths)) +
+  geom_point(mapping = aes(x = dose2, y = deaths, color = "Second dose")) +
+  geom_smooth(mapping = aes(x = dose2, y = deaths)) +
+  labs(title = "Vaccination rates and deaths") +
+  labs(x = "Vaccination rates", y = "Daily new deaths")
+```
+
+    ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+    ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+
+![](index_files/figure-gfm/data%20visualization-2.png)<!-- -->
 
 \#Conclusion
