@@ -5,18 +5,26 @@ Carmen Jiawen Chen
 
 **Vaccination rates and COVID-19 cases and deaths in California**
 
-**Introduction** (provide background on your dataset and formulated
-question)
+**Introduction**
 
-Vaccination rate and COVID-19 incidence cases and deaths increase in
-California.
+The vaccinations have begun almost a year since its distribution. The
+fully vaccinated percentage in California was increasing and stagnated
+around 60%. However, the herd immunity didn’t seem to be achieved and
+the COVID-19 daily new cases is still very high in California.
+Therefore, this project aims to investigate the relationship of
+vaccination rates on COVID-19 daily new cases and deaths in California
+by using the data from California Health & Human Services Agency and US
+Center for Disease Control and Prevention.
 
-**Methods** (include how and where the data were acquired, how you
-cleaned and wrangled the data, what tools you used for data exploration)
+**Methods**
 
 Data of COVID-19 cases and vaccination rates were acquired from
 California Health & Human Services Agency and US Center for Disease
-Control and Prevention, respectively. Data
+Control and Prevention, respectively. Data in California and with
+variables of interest (i.e., date, percentage of first dose, percentage
+of second dose, daily new cases, cumulative cases, daily new deaths, and
+cumulative deaths) were extracted. The date variables were formatted in
+both datasets.
 
 ``` r
 cases <- read.csv("Cases.csv")
@@ -37,14 +45,14 @@ cases$date <- as.Date(cases$date, format = "%Y-%m-%d")
 ```
 
 Dimensions, headers, and footers of the two datasets were checked. There
-are 311 observations and 3 rows in the “vaccinations” dataset, as well
-as 628 observations and 5 rows in the “cases” dataset. Implausible data
-(e.g., 0 cases increase) was found in the date variable on “2021-10-20”
-in the “cases” dataset. Considering the 14-day incubation period of the
-COVID-19 disease, the data from 2021-10-06 to 2021-10-20 were not the
-final accurate number of cases and deaths since there are still many
-cases and deaths were not reported timely. Thus, these data were removed
-from the “cases” dataset.
+are 311 observations and 3 variables in the “vaccinations” dataset, as
+well as 628 observations and 5 variables in the “cases” dataset.
+Implausible data (e.g., 0 cases increase) was found in the date variable
+on “2021-10-20” in the “cases” dataset. Considering the 14-day
+incubation period of the COVID-19 disease, the data from 2021-10-06 to
+2021-10-20 were not the final accurate number of cases and deaths since
+there are still many cases and deaths were not reported timely. Thus,
+these data were removed from the “cases” dataset.
 
 ``` r
 #check the date
@@ -76,15 +84,14 @@ summary(cases$deaths)
 summary(cases$cumulative_deaths)
 ```
 
-The two datasets were merged into one dataset by date. Final dataset has
-296 observations (i.e. rows) and 7 variables (i.e., columns).
-Exploratory data analysis was conducted in the merged dataset. No
-missing value, implaussible vaule or data error was found. The data
-includes COVID-19 partial and fully vaccination rates, daily new cases,
-cumulative cases, daily new deaths, as well cumulative deaths from
-2020/12/14 to 2021/10/05. Both univariate and bivariate summary
-statistics was analyzed. Exploratory graphs were generated between
-vaccination rates and cases and deaths.
+The two datasets were merged into one dataset by date variable. Final
+dataset has 296 observations and 7 variables. Exploratory data analysis
+was conducted in the merged dataset. No missing value, implaussible
+vaule or data error was found. The data includes COVID-19 partial and
+fully vaccination rates, daily new cases, cumulative cases, daily new
+deaths, as well cumulative deaths from 2020/12/14 to 2021/10/05. Both
+univariate and bivariate summary statistics was analyzed. Exploratory
+graphs were generated between vaccination rates and cases and deaths.
 
 ``` r
 #combine the dataset
@@ -104,9 +111,15 @@ summary(covid$cumulative_cases)
 covid[!complete.cases(covid),]
 ```
 
-**Preliminary Results** (provide summary statistics in tabular form and
-publication-quality figures, take a look at the kable function from
-knitr to write nice tables in Rmarkdown)
+**Preliminary Results**
+
+Table 1 presented the summary statistics of the data, including range of
+the date and median (IQR) of first dose, second dose, daily new cases,
+cumulative cases, daily new deaths, and cumulative deaths. There are a
+total of 296 observations collected from 2020-12-14 to 2021-10-05. The
+maximum partial and fully vaccination rates in California are 52% and
+64%, respectively. The medians (IQRs) of the daily new cases and deaths
+are 4275 (1810, 11520) and 64 (23, 159), respectively.
 
 ``` r
 #Table 1. Characteristics of the COVID-19 data
@@ -122,12 +135,12 @@ covid %>%
   modify_caption ("**Table 1. Characteristics of the COVID-19 data**")
 ```
 
-<div id="iyyktqvnsz" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ctamdnrcan" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#iyyktqvnsz .gt_table {
+#ctamdnrcan .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -152,7 +165,7 @@ covid %>%
   border-left-color: #D3D3D3;
 }
 
-#iyyktqvnsz .gt_heading {
+#ctamdnrcan .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -164,7 +177,7 @@ covid %>%
   border-right-color: #D3D3D3;
 }
 
-#iyyktqvnsz .gt_title {
+#ctamdnrcan .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -174,7 +187,7 @@ covid %>%
   border-bottom-width: 0;
 }
 
-#iyyktqvnsz .gt_subtitle {
+#ctamdnrcan .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -184,13 +197,13 @@ covid %>%
   border-top-width: 0;
 }
 
-#iyyktqvnsz .gt_bottom_border {
+#ctamdnrcan .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#iyyktqvnsz .gt_col_headings {
+#ctamdnrcan .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -205,7 +218,7 @@ covid %>%
   border-right-color: #D3D3D3;
 }
 
-#iyyktqvnsz .gt_col_heading {
+#ctamdnrcan .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -225,7 +238,7 @@ covid %>%
   overflow-x: hidden;
 }
 
-#iyyktqvnsz .gt_column_spanner_outer {
+#ctamdnrcan .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -237,15 +250,15 @@ covid %>%
   padding-right: 4px;
 }
 
-#iyyktqvnsz .gt_column_spanner_outer:first-child {
+#ctamdnrcan .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#iyyktqvnsz .gt_column_spanner_outer:last-child {
+#ctamdnrcan .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#iyyktqvnsz .gt_column_spanner {
+#ctamdnrcan .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -257,7 +270,7 @@ covid %>%
   width: 100%;
 }
 
-#iyyktqvnsz .gt_group_heading {
+#ctamdnrcan .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -279,7 +292,7 @@ covid %>%
   vertical-align: middle;
 }
 
-#iyyktqvnsz .gt_empty_group_heading {
+#ctamdnrcan .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -294,15 +307,15 @@ covid %>%
   vertical-align: middle;
 }
 
-#iyyktqvnsz .gt_from_md > :first-child {
+#ctamdnrcan .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#iyyktqvnsz .gt_from_md > :last-child {
+#ctamdnrcan .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#iyyktqvnsz .gt_row {
+#ctamdnrcan .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -321,7 +334,7 @@ covid %>%
   overflow-x: hidden;
 }
 
-#iyyktqvnsz .gt_stub {
+#ctamdnrcan .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -333,7 +346,7 @@ covid %>%
   padding-left: 12px;
 }
 
-#iyyktqvnsz .gt_summary_row {
+#ctamdnrcan .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -343,7 +356,7 @@ covid %>%
   padding-right: 5px;
 }
 
-#iyyktqvnsz .gt_first_summary_row {
+#ctamdnrcan .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -353,7 +366,7 @@ covid %>%
   border-top-color: #D3D3D3;
 }
 
-#iyyktqvnsz .gt_grand_summary_row {
+#ctamdnrcan .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -363,7 +376,7 @@ covid %>%
   padding-right: 5px;
 }
 
-#iyyktqvnsz .gt_first_grand_summary_row {
+#ctamdnrcan .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -373,11 +386,11 @@ covid %>%
   border-top-color: #D3D3D3;
 }
 
-#iyyktqvnsz .gt_striped {
+#ctamdnrcan .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#iyyktqvnsz .gt_table_body {
+#ctamdnrcan .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -386,7 +399,7 @@ covid %>%
   border-bottom-color: #D3D3D3;
 }
 
-#iyyktqvnsz .gt_footnotes {
+#ctamdnrcan .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -400,13 +413,13 @@ covid %>%
   border-right-color: #D3D3D3;
 }
 
-#iyyktqvnsz .gt_footnote {
+#ctamdnrcan .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#iyyktqvnsz .gt_sourcenotes {
+#ctamdnrcan .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -420,41 +433,41 @@ covid %>%
   border-right-color: #D3D3D3;
 }
 
-#iyyktqvnsz .gt_sourcenote {
+#ctamdnrcan .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#iyyktqvnsz .gt_left {
+#ctamdnrcan .gt_left {
   text-align: left;
 }
 
-#iyyktqvnsz .gt_center {
+#ctamdnrcan .gt_center {
   text-align: center;
 }
 
-#iyyktqvnsz .gt_right {
+#ctamdnrcan .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#iyyktqvnsz .gt_font_normal {
+#ctamdnrcan .gt_font_normal {
   font-weight: normal;
 }
 
-#iyyktqvnsz .gt_font_bold {
+#ctamdnrcan .gt_font_bold {
   font-weight: bold;
 }
 
-#iyyktqvnsz .gt_font_italic {
+#ctamdnrcan .gt_font_italic {
   font-style: italic;
 }
 
-#iyyktqvnsz .gt_super {
+#ctamdnrcan .gt_super {
   font-size: 65%;
 }
 
-#iyyktqvnsz .gt_footnote_marks {
+#ctamdnrcan .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -502,6 +515,12 @@ covid %>%
   </tfoot>
 </table>
 </div>
+
+Table 2 presented the correlation coefficients of vaccination rates with
+daily new cases and deaths. Vaccination rates were negatively associated
+with daily new cases and deaths. Such negative association was stronger
+in the correlation between vaccination rates and daily new deaths (R:
+-0.78 for first dose, -0.68 for second dose).
 
 ``` r
 #First dose correlation
@@ -562,6 +581,15 @@ Deaths
 </tbody>
 </table>
 
+Exploratory graphs were presented in figure 1 and figure 2a-2e.
+Vaccinations in California started in February and the rates continued
+to increase. The increase of vaccination rates became more slowly when
+it achieved around 60% of first dose vaccination rate. The daily new
+cases started to decrease drastically around February and the cases
+remained in a stable small number until July. A small break out in daily
+new cases occurred in July and it achieved its peak in September. The
+trend pattern of the daily new deaths is similar to daily new cases.
+
 ``` r
 #Vaccination rates
 ggplot(data = covid) +
@@ -613,6 +641,17 @@ ggplot(data = covid) +
 
 ![](index_files/figure-gfm/exploratory%20graphs-5.png)<!-- -->
 
+Data visualization graphs were generated in Figure 3a & 3b to visualize
+the relationship between vaccination rates and daily new cases and
+deaths. There was an non-symmetrical inverse pattern in the relationship
+of vaccination rates and daily new cases In the beginning. Daily new
+cases was negatively associated with vaccination rates until the first
+dose vaccination rates achieved around 50%. After that, daily new cases
+increase drastically with the increase of vaccination rates. This same
+pattern was also found in the relationship of vaccination rates and
+daily new deaths. However, the stronger negative association was
+observed in the daily new cases figure in the beginning of the data.
+
 ``` r
 #Vaccination rates and cases
 covid[covid$dose1 > 0,] %>%
@@ -624,9 +663,6 @@ ggplot() +
   labs(title = "Figure 3a. Vaccination rates and cases") +
   labs(x = "Vaccination rates", y = "Daily new cases")
 ```
-
-    ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
-    ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 
 ![](index_files/figure-gfm/data%20visualization-1.png)<!-- -->
 
@@ -642,9 +678,16 @@ ggplot() +
   labs(x = "Vaccination rates", y = "Daily new deaths")
 ```
 
-    ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
-    ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
-
 ![](index_files/figure-gfm/data%20visualization-2.png)<!-- -->
 
-\#Conclusion
+**Conclusion**
+
+There is a positive association of vaccination rates and daily new cases
+and deaths when the first dose of vaccination rate achieved around 50%.
+This may be due to the re-opening of the economic and lift of mask
+mandate during that time. Overall, we could see the protective effect of
+vaccine towards infection and death according to the data in the
+beginning. A stronger negative association in the beginning of
+vaccination rates and daily new deaths compared to daily new cases may
+be due to a stronger efficacy of the vaccine towards preventing
+mortality.
