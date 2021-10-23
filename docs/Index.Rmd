@@ -17,6 +17,7 @@ library(tidyverse)
 library(dplyr)
 library(ggplot2)
 library(gtsummary)
+library(kableExtra)
 ```
 **Vaccination rates and COVID-19 cases and deaths in California**
 
@@ -128,8 +129,9 @@ Deaths = cor(covid$dose2, covid$deaths, use = "complete")
 colnames(`Second dose`) <- "Second dose"
 #Combine the table
 cbind(`First dose`, `Second dose`) %>%
-  knitr::kable(caption = "**Table 2. Correlation coefficients of vacciantion rates and cases/deaths**")
+kable(caption = "<b>Table 2. Correlation coefficients of vacciantion rates and cases/deaths<b>")
 ```
+
 
 
 ```{r exploratory graphs}
