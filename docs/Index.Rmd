@@ -16,15 +16,16 @@ library(data.table)
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
+library(gtsummary)
 ```
+**Vaccination rates and COVID-19 cases and deaths in California**
 
-#Introduction (provide background on your dataset and formulated question)
+**Introduction** (provide background on your dataset and formulated question)
 
 Vaccination rate and COVID-19 incidence cases and deaths increase in California.
 
 
-
-#Methods (include how and where the data were acquired, how you cleaned and wrangled the data, what tools you used for data exploration)
+**Methods** (include how and where the data were acquired, how you cleaned and wrangled the data, what tools you used for data exploration)
 
 Data of COVID-19 cases and vaccination rates were acquired from California Health & Human Services Agency and US Center for Disease Control and Prevention, respectively. Data 
 
@@ -49,7 +50,7 @@ cases$date <- as.Date(cases$date, format = "%Y-%m-%d")
 
 Dimensions, headers, and footers of the two datasets were checked. There are 311 observations and 3 rows in the "vaccinations" dataset, as well as 628 observations and 5 rows in the "cases" dataset. Implausible data (e.g., 0 cases increase) was found in the date variable on "2021-10-20" in the "cases" dataset. Considering the 14-day incubation period of the COVID-19 disease, the data from 2021-10-06 to 2021-10-20 were not the final accurate number of cases and deaths since there are still many cases and deaths were not reported timely. Thus, these data were removed from the "cases" dataset. 
 
-```{r data exploration}
+```{r data exploration, results='hide'}
 #check the date
 summary(vaccinations$date)
 summary(cases$date)
@@ -80,10 +81,10 @@ summary(cases$cumulative_deaths)
 ```
 
 
-The two datasets were merged into one dataset by date. Exploratory data analysis was conducted in the merged dataset. No missing value, implaussible vaule or data error was found. The data includes COVID-19 partial and fully vaccination rates, incidence cases, cumulative cases, deaths increase, as well cumulative deaths from 2020/12/14 to 2021/10/05. Both univariate and bivariate summary statistics was analyzed. Exploratory graphs were generated between vaccination rates and cases and deaths.  
+The two datasets were merged into one dataset by date. Final dataset has 296 observations (i.e. rows) and 7 variables (i.e., columns). Exploratory data analysis was conducted in the merged dataset. No missing value, implaussible vaule or data error was found. The data includes COVID-19 partial and fully vaccination rates, daily new cases, cumulative cases, daily new deaths, as well cumulative deaths from 2020/12/14 to 2021/10/05. Both univariate and bivariate summary statistics was analyzed. Exploratory graphs were generated between vaccination rates and cases and deaths.  
 
 
-```{r combine the dataset}
+```{r combine the dataset, results='hide'}
 #combine the dataset
 covid <- merge(vaccinations, cases, by = "date")
 #exploratory analysis
@@ -101,46 +102,66 @@ summary(covid$cumulative_cases)
 covid[!complete.cases(covid),]
 ```
 
-#Preliminary Results (provide summary statistics in tabular form and publication-quality figures, take a look at the kable function from knitr to write nice tables in Rmarkdown)
+**Preliminary Results** (provide summary statistics in tabular form and publication-quality figures, take a look at the kable function from knitr to write nice tables in Rmarkdown)
 
 ```{r summary statistics}
-#dose1
-cor(covid$dose1, covid$cases, use = "complete")
-cor(covid$dose1, covid$deaths, use = "complete")
-#dose2
-cor(covid$dose2, covid$cases, use = "complete")
-cor(covid$dose2, covid$deaths, use = "complete")
+#Table 1. Characteristics of the COVID-19 data
+covid %>%
+  select("Date" = date,
+         "First dose, %" = dose1,
+         "Second dose, %" = dose2,
+         "Daily new cases" = cases,
+         "Cumulative cases" = cumulative_cases,
+         "Daily new deaths" = deaths,
+         "Cumulative deaths" = cumulative_deaths) %>%
+  tbl_summary() %>%
+  modify_caption ("**Table 1. Characteristics of the COVID-19 data**")
+#First dose correlation
+Cases = cor(covid$dose1, covid$cases, use = "complete")
+Deaths = cor(covid$dose1, covid$deaths, use = "complete")
+`First dose` = rbind(Cases, Deaths) 
+colnames(`First dose`) <- "First dose"
+#Second dose correlation
+Cases = cor(covid$dose2, covid$cases, use = "complete")
+Deaths = cor(covid$dose2, covid$deaths, use = "complete")
+`Second dose` = rbind(Cases, Deaths) 
+colnames(`Second dose`) <- "Second dose"
+#Combine the table
+cbind(`First dose`, `Second dose`) %>%
+  knitr::kable(caption = "**Table 2. Correlation coefficients of vacciantion rates and cases/deaths**")
 ```
+
+
 ```{r exploratory graphs}
 #Vaccination rates
 ggplot(data = covid) +
   geom_point(mapping = aes(x = date, y = dose1, color = "First dose")) +
   geom_point(mapping = aes(x = date, y = dose2, color = "Second dose")) +
-  labs(title = "Vaccination rates from 2020-12-14 to 2021-10-05") +
+  labs(title = "Figure 1. Vaccination rates from 2020-12-14 to 2021-10-05") +
   labs(x = "Date", y = "Vaccination rates")
 
 #Cases
 ggplot(data = covid) +
   geom_point(mapping = aes(x = date, y = cases)) +
-  labs(title = "Daily new cases from 2020-12-14 to 2021-10-05") +
+  labs(title = "Figure 2a. Daily new cases from 2020-12-14 to 2021-10-05") +
   labs(x = "Date", y = "Daily new cases")
 
 #Deaths
 ggplot(data = covid) +
   geom_point(mapping = aes(x = date, y = deaths)) +
-  labs(title = "Daily new deaths from 2020-12-14 to 2021-10-05") +
+  labs(title = "Figure 2b. Daily new deaths from 2020-12-14 to 2021-10-05") +
   labs(x = "Date", y = "Daily new deaths")
 
 #Cumulative cases
 ggplot(data = covid) +
   geom_point(mapping = aes(x = date, y = cumulative_cases)) +
-  labs(title = "Cumulative cases from 2020-12-14 to 2021-10-05") +
+  labs(title = "Figure 2c. Cumulative cases from 2020-12-14 to 2021-10-05") +
   labs(x = "Date", y = "Cumulative cases")
 
 #Cumulative deaths
 ggplot(data = covid) +
   geom_point(mapping = aes(x = date, y = cumulative_deaths)) +
-  labs(title = "Cumulative deaths from 2020-12-14 to 2021-10-05") +
+  labs(title = "Figure 2e. Cumulative deaths from 2020-12-14 to 2021-10-05") +
   labs(x = "Date", y = "Cumulative deaths")
 ```
 
@@ -153,7 +174,7 @@ ggplot() +
   geom_smooth(mapping = aes(x = dose1, y = cases)) +
   geom_point(mapping = aes(x = dose2, y = cases, color = "Second dose")) +
   geom_smooth(mapping = aes(x = dose2, y = cases)) +
-  labs(title = "Vaccination rates and cases") +
+  labs(title = "Figure 3a. Vaccination rates and cases") +
   labs(x = "Vaccination rates", y = "Daily new cases")
 
 #Vaccination rates and deaths
@@ -163,7 +184,7 @@ ggplot() +
   geom_smooth(mapping = aes(x = dose1, y = deaths)) +
   geom_point(mapping = aes(x = dose2, y = deaths, color = "Second dose")) +
   geom_smooth(mapping = aes(x = dose2, y = deaths)) +
-  labs(title = "Vaccination rates and deaths") +
+  labs(title = "Figure 3b. Vaccination rates and deaths") +
   labs(x = "Vaccination rates", y = "Daily new deaths")
 ```
 
