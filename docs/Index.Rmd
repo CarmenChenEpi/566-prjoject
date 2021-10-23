@@ -150,10 +150,11 @@ Deaths = cor(covid$dose2, covid$deaths, use = "complete")
 colnames(`Second dose`) <- "Second dose"
 #Combine the table
 cbind(`First dose`, `Second dose`) %>%
-kable(caption = "<b>Table 2. Correlation coefficients of vacciantion rates and cases/deaths<b>")
+kable(caption = "Table 2. Correlation coefficients of vacciantion rates and cases/deaths")
 ```
 
 Exploratory graphs were presented in figure 1 and figure 2a-2e. Vaccinations in California started in February and the rates continued to increase. The increase of vaccination rates became more slowly when it achieved around 60% of first dose vaccination rate. The daily new cases started to decrease drastically around February and the cases remained in a stable small number until July. A small break out in daily new cases occurred in July and it achieved its peak in September. The trend pattern of the daily new deaths is similar to daily new cases. 
+
 ```{r exploratory graphs}
 #Vaccination rates
 ggplot(data = covid) +
