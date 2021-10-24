@@ -135,12 +135,12 @@ covid %>%
   modify_caption ("**Table 1. Characteristics of the COVID-19 data**")
 ```
 
-<div id="oadbxalwbr" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="xgipetazqj" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#oadbxalwbr .gt_table {
+#xgipetazqj .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -165,7 +165,7 @@ covid %>%
   border-left-color: #D3D3D3;
 }
 
-#oadbxalwbr .gt_heading {
+#xgipetazqj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -177,7 +177,7 @@ covid %>%
   border-right-color: #D3D3D3;
 }
 
-#oadbxalwbr .gt_title {
+#xgipetazqj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -187,7 +187,7 @@ covid %>%
   border-bottom-width: 0;
 }
 
-#oadbxalwbr .gt_subtitle {
+#xgipetazqj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -197,13 +197,13 @@ covid %>%
   border-top-width: 0;
 }
 
-#oadbxalwbr .gt_bottom_border {
+#xgipetazqj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#oadbxalwbr .gt_col_headings {
+#xgipetazqj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -218,7 +218,7 @@ covid %>%
   border-right-color: #D3D3D3;
 }
 
-#oadbxalwbr .gt_col_heading {
+#xgipetazqj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -238,7 +238,7 @@ covid %>%
   overflow-x: hidden;
 }
 
-#oadbxalwbr .gt_column_spanner_outer {
+#xgipetazqj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -250,15 +250,15 @@ covid %>%
   padding-right: 4px;
 }
 
-#oadbxalwbr .gt_column_spanner_outer:first-child {
+#xgipetazqj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#oadbxalwbr .gt_column_spanner_outer:last-child {
+#xgipetazqj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#oadbxalwbr .gt_column_spanner {
+#xgipetazqj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -270,7 +270,7 @@ covid %>%
   width: 100%;
 }
 
-#oadbxalwbr .gt_group_heading {
+#xgipetazqj .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -292,7 +292,7 @@ covid %>%
   vertical-align: middle;
 }
 
-#oadbxalwbr .gt_empty_group_heading {
+#xgipetazqj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -307,15 +307,15 @@ covid %>%
   vertical-align: middle;
 }
 
-#oadbxalwbr .gt_from_md > :first-child {
+#xgipetazqj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#oadbxalwbr .gt_from_md > :last-child {
+#xgipetazqj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#oadbxalwbr .gt_row {
+#xgipetazqj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -334,7 +334,7 @@ covid %>%
   overflow-x: hidden;
 }
 
-#oadbxalwbr .gt_stub {
+#xgipetazqj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -346,7 +346,7 @@ covid %>%
   padding-left: 12px;
 }
 
-#oadbxalwbr .gt_summary_row {
+#xgipetazqj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -356,7 +356,7 @@ covid %>%
   padding-right: 5px;
 }
 
-#oadbxalwbr .gt_first_summary_row {
+#xgipetazqj .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -366,7 +366,7 @@ covid %>%
   border-top-color: #D3D3D3;
 }
 
-#oadbxalwbr .gt_grand_summary_row {
+#xgipetazqj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -376,7 +376,7 @@ covid %>%
   padding-right: 5px;
 }
 
-#oadbxalwbr .gt_first_grand_summary_row {
+#xgipetazqj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -386,11 +386,11 @@ covid %>%
   border-top-color: #D3D3D3;
 }
 
-#oadbxalwbr .gt_striped {
+#xgipetazqj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#oadbxalwbr .gt_table_body {
+#xgipetazqj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -399,7 +399,7 @@ covid %>%
   border-bottom-color: #D3D3D3;
 }
 
-#oadbxalwbr .gt_footnotes {
+#xgipetazqj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -413,13 +413,13 @@ covid %>%
   border-right-color: #D3D3D3;
 }
 
-#oadbxalwbr .gt_footnote {
+#xgipetazqj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#oadbxalwbr .gt_sourcenotes {
+#xgipetazqj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -433,41 +433,41 @@ covid %>%
   border-right-color: #D3D3D3;
 }
 
-#oadbxalwbr .gt_sourcenote {
+#xgipetazqj .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#oadbxalwbr .gt_left {
+#xgipetazqj .gt_left {
   text-align: left;
 }
 
-#oadbxalwbr .gt_center {
+#xgipetazqj .gt_center {
   text-align: center;
 }
 
-#oadbxalwbr .gt_right {
+#xgipetazqj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#oadbxalwbr .gt_font_normal {
+#xgipetazqj .gt_font_normal {
   font-weight: normal;
 }
 
-#oadbxalwbr .gt_font_bold {
+#xgipetazqj .gt_font_bold {
   font-weight: bold;
 }
 
-#oadbxalwbr .gt_font_italic {
+#xgipetazqj .gt_font_italic {
   font-style: italic;
 }
 
-#oadbxalwbr .gt_super {
+#xgipetazqj .gt_super {
   font-size: 65%;
 }
 
-#oadbxalwbr .gt_footnote_marks {
+#xgipetazqj .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -609,13 +609,13 @@ ggplot(data = covid) +
 Data visualization graphs were generated in Figure 3a & 3b to visualize
 the relationship between vaccination rates and daily new cases and
 deaths. There was an non-symmetrical inverse pattern in the relationship
-of vaccination rates and daily new cases In the beginning. Daily new
+of vaccination rates and daily new cases in the beginning. Daily new
 cases was negatively associated with vaccination rates until the first
 dose vaccination rates achieved around 50%. After that, daily new cases
 increase drastically with the increase of vaccination rates. This same
 pattern was also found in the relationship of vaccination rates and
-daily new deaths. However, the stronger negative association was
-observed in the daily new cases figure in the beginning of the data.
+daily new deaths. However, a stronger negative association was observed
+in the daily new deaths figure in the beginning of the data.
 
 ``` r
 #Vaccination rates and cases

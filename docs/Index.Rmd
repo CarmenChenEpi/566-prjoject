@@ -187,7 +187,7 @@ ggplot(data = covid) +
 ```
 
 
-Data visualization graphs were generated in Figure 3a & 3b to visualize the relationship between vaccination rates and daily new cases and deaths. There was an non-symmetrical inverse pattern in the relationship of vaccination rates and daily new cases In the beginning. Daily new cases was negatively associated with vaccination rates until the first dose vaccination rates achieved around 50%. After that, daily new cases increase drastically with the increase of vaccination rates. This same pattern was also found in the relationship of vaccination rates and daily new deaths. However, the stronger negative association was observed in the daily new cases figure in the beginning of the data. 
+Data visualization graphs were generated in Figure 3a & 3b to visualize the relationship between vaccination rates and daily new cases and deaths. There was an non-symmetrical inverse pattern in the relationship of vaccination rates and daily new cases in the beginning. Daily new cases was negatively associated with vaccination rates until the first dose vaccination rates achieved around 50%. After that, daily new cases increase drastically with the increase of vaccination rates. This same pattern was also found in the relationship of vaccination rates and daily new deaths. However, a stronger negative association was observed in the daily new deaths figure in the beginning of the data. 
 
 ```{r data visualization, message = FALSE}
 #Vaccination rates and cases
