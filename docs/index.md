@@ -135,12 +135,12 @@ covid %>%
   modify_caption ("**Table 1. Characteristics of the COVID-19 data**")
 ```
 
-<div id="urtagslygt" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="rrsnkibpsm" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#urtagslygt .gt_table {
+#rrsnkibpsm .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -165,7 +165,7 @@ covid %>%
   border-left-color: #D3D3D3;
 }
 
-#urtagslygt .gt_heading {
+#rrsnkibpsm .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -177,7 +177,7 @@ covid %>%
   border-right-color: #D3D3D3;
 }
 
-#urtagslygt .gt_title {
+#rrsnkibpsm .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -187,7 +187,7 @@ covid %>%
   border-bottom-width: 0;
 }
 
-#urtagslygt .gt_subtitle {
+#rrsnkibpsm .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -197,13 +197,13 @@ covid %>%
   border-top-width: 0;
 }
 
-#urtagslygt .gt_bottom_border {
+#rrsnkibpsm .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#urtagslygt .gt_col_headings {
+#rrsnkibpsm .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -218,7 +218,7 @@ covid %>%
   border-right-color: #D3D3D3;
 }
 
-#urtagslygt .gt_col_heading {
+#rrsnkibpsm .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -238,7 +238,7 @@ covid %>%
   overflow-x: hidden;
 }
 
-#urtagslygt .gt_column_spanner_outer {
+#rrsnkibpsm .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -250,15 +250,15 @@ covid %>%
   padding-right: 4px;
 }
 
-#urtagslygt .gt_column_spanner_outer:first-child {
+#rrsnkibpsm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#urtagslygt .gt_column_spanner_outer:last-child {
+#rrsnkibpsm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#urtagslygt .gt_column_spanner {
+#rrsnkibpsm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -270,7 +270,7 @@ covid %>%
   width: 100%;
 }
 
-#urtagslygt .gt_group_heading {
+#rrsnkibpsm .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -292,7 +292,7 @@ covid %>%
   vertical-align: middle;
 }
 
-#urtagslygt .gt_empty_group_heading {
+#rrsnkibpsm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -307,15 +307,15 @@ covid %>%
   vertical-align: middle;
 }
 
-#urtagslygt .gt_from_md > :first-child {
+#rrsnkibpsm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#urtagslygt .gt_from_md > :last-child {
+#rrsnkibpsm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#urtagslygt .gt_row {
+#rrsnkibpsm .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -334,7 +334,7 @@ covid %>%
   overflow-x: hidden;
 }
 
-#urtagslygt .gt_stub {
+#rrsnkibpsm .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -346,7 +346,7 @@ covid %>%
   padding-left: 12px;
 }
 
-#urtagslygt .gt_summary_row {
+#rrsnkibpsm .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -356,7 +356,7 @@ covid %>%
   padding-right: 5px;
 }
 
-#urtagslygt .gt_first_summary_row {
+#rrsnkibpsm .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -366,7 +366,7 @@ covid %>%
   border-top-color: #D3D3D3;
 }
 
-#urtagslygt .gt_grand_summary_row {
+#rrsnkibpsm .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -376,7 +376,7 @@ covid %>%
   padding-right: 5px;
 }
 
-#urtagslygt .gt_first_grand_summary_row {
+#rrsnkibpsm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -386,11 +386,11 @@ covid %>%
   border-top-color: #D3D3D3;
 }
 
-#urtagslygt .gt_striped {
+#rrsnkibpsm .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#urtagslygt .gt_table_body {
+#rrsnkibpsm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -399,7 +399,7 @@ covid %>%
   border-bottom-color: #D3D3D3;
 }
 
-#urtagslygt .gt_footnotes {
+#rrsnkibpsm .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -413,13 +413,13 @@ covid %>%
   border-right-color: #D3D3D3;
 }
 
-#urtagslygt .gt_footnote {
+#rrsnkibpsm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#urtagslygt .gt_sourcenotes {
+#rrsnkibpsm .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -433,41 +433,41 @@ covid %>%
   border-right-color: #D3D3D3;
 }
 
-#urtagslygt .gt_sourcenote {
+#rrsnkibpsm .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#urtagslygt .gt_left {
+#rrsnkibpsm .gt_left {
   text-align: left;
 }
 
-#urtagslygt .gt_center {
+#rrsnkibpsm .gt_center {
   text-align: center;
 }
 
-#urtagslygt .gt_right {
+#rrsnkibpsm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#urtagslygt .gt_font_normal {
+#rrsnkibpsm .gt_font_normal {
   font-weight: normal;
 }
 
-#urtagslygt .gt_font_bold {
+#rrsnkibpsm .gt_font_bold {
   font-weight: bold;
 }
 
-#urtagslygt .gt_font_italic {
+#rrsnkibpsm .gt_font_italic {
   font-style: italic;
 }
 
-#urtagslygt .gt_super {
+#rrsnkibpsm .gt_super {
   font-size: 65%;
 }
 
-#urtagslygt .gt_footnote_marks {
+#rrsnkibpsm .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -535,51 +535,16 @@ Deaths = cor(covid$dose2, covid$deaths, use = "complete")
 colnames(`Second dose`) <- "Second dose"
 #Combine the table
 cbind(`First dose`, `Second dose`) %>%
-knitr::kable(caption = "<b>Table 2. Correlation coefficients of vacciantion rates and cases/deaths<b>",format = 'html')
+  knitr::kable(caption = "**Table 2. Correlation coefficients of vacciantion rates and cases/deaths**")
 ```
 
-<table>
-<caption>
-<b>Table 2. Correlation coefficients of vacciantion rates and
-cases/deaths<b>
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-First dose
-</th>
-<th style="text-align:right;">
-Second dose
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Cases
-</td>
-<td style="text-align:right;">
--0.4990338
-</td>
-<td style="text-align:right;">
--0.3931054
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Deaths
-</td>
-<td style="text-align:right;">
--0.7814445
-</td>
-<td style="text-align:right;">
--0.6816794
-</td>
-</tr>
-</tbody>
-</table>
+|        | First dose | Second dose |
+|:-------|-----------:|------------:|
+| Cases  | -0.4990338 |  -0.3931054 |
+| Deaths | -0.7814445 |  -0.6816794 |
+
+**Table 2. Correlation coefficients of vacciantion rates and
+cases/deaths**
 
 Exploratory graphs were presented in figure 1 and figure 2a-2e.
 Vaccinations in California started in February and the rates continued
