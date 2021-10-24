@@ -3,9 +3,9 @@ title: "PM566 Midterm Project"
 author: "Carmen Jiawen Chen"
 date: "10/20/2021"
 output: 
-  github_document: default
   html_document:
-    html_preview: false
+    html_preview: true
+  github_document: default
   word_document: default
 always_allow_html: true
 ---
