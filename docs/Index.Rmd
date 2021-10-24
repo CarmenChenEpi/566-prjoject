@@ -23,7 +23,6 @@ library(gtsummary)
 
 
 
-
 **Introduction** 
 
 The vaccinations have begun almost a year since its distribution. The fully vaccinated percentage in California was increasing and stagnated around 60%. However, the herd immunity didn't seem to be achieved and the COVID-19 daily new cases is still very high in California. Therefore, this project aims to investigate the relationship of vaccination rates on COVID-19 daily new cases and deaths in California by using the data from California Health & Human Services Agency and US Center for Disease Control and Prevention. 
