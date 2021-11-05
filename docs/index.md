@@ -135,12 +135,12 @@ covid %>%
   modify_caption ("**Table 1. Characteristics of the COVID-19 data**")
 ```
 
-<div id="sjxxvkjvhi" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="nprkkpzdix" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#sjxxvkjvhi .gt_table {
+#nprkkpzdix .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -165,7 +165,7 @@ covid %>%
   border-left-color: #D3D3D3;
 }
 
-#sjxxvkjvhi .gt_heading {
+#nprkkpzdix .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -177,7 +177,7 @@ covid %>%
   border-right-color: #D3D3D3;
 }
 
-#sjxxvkjvhi .gt_title {
+#nprkkpzdix .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -187,7 +187,7 @@ covid %>%
   border-bottom-width: 0;
 }
 
-#sjxxvkjvhi .gt_subtitle {
+#nprkkpzdix .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -197,13 +197,13 @@ covid %>%
   border-top-width: 0;
 }
 
-#sjxxvkjvhi .gt_bottom_border {
+#nprkkpzdix .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#sjxxvkjvhi .gt_col_headings {
+#nprkkpzdix .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -218,7 +218,7 @@ covid %>%
   border-right-color: #D3D3D3;
 }
 
-#sjxxvkjvhi .gt_col_heading {
+#nprkkpzdix .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -238,7 +238,7 @@ covid %>%
   overflow-x: hidden;
 }
 
-#sjxxvkjvhi .gt_column_spanner_outer {
+#nprkkpzdix .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -250,15 +250,15 @@ covid %>%
   padding-right: 4px;
 }
 
-#sjxxvkjvhi .gt_column_spanner_outer:first-child {
+#nprkkpzdix .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#sjxxvkjvhi .gt_column_spanner_outer:last-child {
+#nprkkpzdix .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#sjxxvkjvhi .gt_column_spanner {
+#nprkkpzdix .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -270,7 +270,7 @@ covid %>%
   width: 100%;
 }
 
-#sjxxvkjvhi .gt_group_heading {
+#nprkkpzdix .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -292,7 +292,7 @@ covid %>%
   vertical-align: middle;
 }
 
-#sjxxvkjvhi .gt_empty_group_heading {
+#nprkkpzdix .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -307,15 +307,15 @@ covid %>%
   vertical-align: middle;
 }
 
-#sjxxvkjvhi .gt_from_md > :first-child {
+#nprkkpzdix .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#sjxxvkjvhi .gt_from_md > :last-child {
+#nprkkpzdix .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#sjxxvkjvhi .gt_row {
+#nprkkpzdix .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -334,7 +334,7 @@ covid %>%
   overflow-x: hidden;
 }
 
-#sjxxvkjvhi .gt_stub {
+#nprkkpzdix .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -346,7 +346,7 @@ covid %>%
   padding-left: 12px;
 }
 
-#sjxxvkjvhi .gt_summary_row {
+#nprkkpzdix .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -356,7 +356,7 @@ covid %>%
   padding-right: 5px;
 }
 
-#sjxxvkjvhi .gt_first_summary_row {
+#nprkkpzdix .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -366,7 +366,7 @@ covid %>%
   border-top-color: #D3D3D3;
 }
 
-#sjxxvkjvhi .gt_grand_summary_row {
+#nprkkpzdix .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -376,7 +376,7 @@ covid %>%
   padding-right: 5px;
 }
 
-#sjxxvkjvhi .gt_first_grand_summary_row {
+#nprkkpzdix .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -386,11 +386,11 @@ covid %>%
   border-top-color: #D3D3D3;
 }
 
-#sjxxvkjvhi .gt_striped {
+#nprkkpzdix .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#sjxxvkjvhi .gt_table_body {
+#nprkkpzdix .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -399,7 +399,7 @@ covid %>%
   border-bottom-color: #D3D3D3;
 }
 
-#sjxxvkjvhi .gt_footnotes {
+#nprkkpzdix .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -413,13 +413,13 @@ covid %>%
   border-right-color: #D3D3D3;
 }
 
-#sjxxvkjvhi .gt_footnote {
+#nprkkpzdix .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#sjxxvkjvhi .gt_sourcenotes {
+#nprkkpzdix .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -433,41 +433,41 @@ covid %>%
   border-right-color: #D3D3D3;
 }
 
-#sjxxvkjvhi .gt_sourcenote {
+#nprkkpzdix .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#sjxxvkjvhi .gt_left {
+#nprkkpzdix .gt_left {
   text-align: left;
 }
 
-#sjxxvkjvhi .gt_center {
+#nprkkpzdix .gt_center {
   text-align: center;
 }
 
-#sjxxvkjvhi .gt_right {
+#nprkkpzdix .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#sjxxvkjvhi .gt_font_normal {
+#nprkkpzdix .gt_font_normal {
   font-weight: normal;
 }
 
-#sjxxvkjvhi .gt_font_bold {
+#nprkkpzdix .gt_font_bold {
   font-weight: bold;
 }
 
-#sjxxvkjvhi .gt_font_italic {
+#nprkkpzdix .gt_font_italic {
   font-style: italic;
 }
 
-#sjxxvkjvhi .gt_super {
+#nprkkpzdix .gt_super {
   font-size: 65%;
 }
 
-#sjxxvkjvhi .gt_footnote_marks {
+#nprkkpzdix .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -535,7 +535,7 @@ Deaths = cor(covid$dose2, covid$deaths, use = "complete")
 colnames(`Second dose`) <- "Second dose"
 #Combine the table
 cbind(`First dose`, `Second dose`) %>%
-  knitr::kable(caption = "**Table 2. Correlation coefficients of vacciantion rates and cases/deaths**")
+  knitr::kable(caption = "<strong>Table 2. Correlation coefficients of vacciantion rates and cases/deaths</strong>")
 ```
 
 |        | First dose | Second dose |
@@ -543,8 +543,8 @@ cbind(`First dose`, `Second dose`) %>%
 | Cases  | -0.4990338 |  -0.3931054 |
 | Deaths | -0.7814445 |  -0.6816794 |
 
-**Table 2. Correlation coefficients of vacciantion rates and
-cases/deaths**
+<strong>Table 2. Correlation coefficients of vacciantion rates and
+cases/deaths</strong>
 
 Exploratory graphs were presented in figure 1 and figure 2a-2e.
 Vaccinations in California started in February and the rates continued
